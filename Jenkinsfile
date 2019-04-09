@@ -50,7 +50,7 @@ node {
 
 		*/
 
-        docker.withRegistry('https://cloud.docker.com/repository/docker/madhureddy123/stackstorm', 'docker-hub') {
+        docker.withRegistry('https://cloud.docker.com/repository/docker/madhureddy123/', 'stackstorm') {
 
             app.push("${env.BUILD_NUMBER}")
 
