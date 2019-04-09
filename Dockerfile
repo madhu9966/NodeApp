@@ -1,45 +1,27 @@
-{
+# use a node base image
 
-  "name": "crudsinfotech-nodeapp",
+FROM node:8-onbuild
 
-  "version": "1.0.0",
 
-  "description": "A Hello World HTTP server using Node JS",
 
-  "main": "main.js",
+# set maintainer
 
-  "scripts": {
+LABEL maintainer "madhavineelam5@gmail.com"
 
-    "test": "node test.js",
 
-    "start": "node main.js"
 
-  },
+# set a health check
 
-  "repository": {
+HEALTHCHECK --interval=5s \
 
-    "type": "git",
+            --timeout=5s \
 
-    "url": "https://github.com/madhu9966/NodeApp"
+            CMD curl -f http://100.26.58.138:8000 || exit 1
 
-  },
 
-  "keywords": [
 
-    "node",
+# tell docker what port to expose
 
-    "docker",
-
-    "dockerfile"
-
-  ],
-
-  "author": "madhavineelam5@gmail.com",
-
-  "license": "ISC",
-
-  "devDependencies": { "test": ">=0.6.0" }
-
-}
+EXPOSE 8000
 
 
